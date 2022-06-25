@@ -1,4 +1,5 @@
 const express = require('express');
+require('express-async-errors');
 
 const routes = require('./routes');
 
@@ -13,6 +14,15 @@ app.use((request, response, next) => {
 });
 
 app.use(routes);
+
+/**
+ * Error Handler
+ */
+app.use((error, request, response, next) => {
+	console.log('#### Error Handler');
+	console.log(error);
+	response.sendStatus(500);
+});
 
 const port = 8000;
 app.listen(port, () => `Running on port ${port}`);

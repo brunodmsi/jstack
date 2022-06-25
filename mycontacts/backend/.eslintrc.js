@@ -16,5 +16,6 @@ module.exports = {
 		'object-curly-newline': 'off',
 		'comma-dangle': 'off',
 		'operator-linebreak': 'off',
+		'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
 	},
 };
