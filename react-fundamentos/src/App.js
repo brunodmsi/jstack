@@ -3,9 +3,9 @@ import Header from './components/Header';
 import Post from './components/Post';
 
 const defaultPosts = [
-	{ id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20 },
-	{ id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10 },
-	{ id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50 },
+	{ id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false },
+	{ id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10, read: true },
+	{ id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: false },
 ]
 
 const App = () => {
@@ -19,7 +19,8 @@ const App = () => {
 				id: Math.random(),
 				title: `Title#0${prevPosts.length + 1}`,
 				subtitle: `Sub#0${prevPosts.length + 1}`,
-				likes: 50
+				likes: 50,
+				read: false
 			}
 		]);
 	}
@@ -44,10 +45,7 @@ const App = () => {
 			{posts.map((post) => (
 				<Post 
 					key={post.id}
-					id={post.id}
-					title={post.title}	
-					subtitle={post.subtitle}	
-					likes={post.likes}	
+					post={post}
 					onRemove={handleRemovePost}
 				/>
 			))}
