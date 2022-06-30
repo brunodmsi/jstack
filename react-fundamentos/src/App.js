@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import Header from './components/Header';
 import Post from './components/Post';
 
@@ -8,11 +8,21 @@ const defaultPosts = [
 	{ id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: false },
 ]
 
+export const ThemeContext = createContext('dark');
+
 const App = () => {
+	const [theme, setTheme] = useState('dark');
 	const [posts, setPosts] = useState(defaultPosts)
 
-	const handleRefresh = () => {
+	const handleToggleTheme = () => {
+		setTheme((prevTheme) => (
+			prevTheme === 'dark'
+				? 'light'
+				: 'dark'
+		))
+	}
 
+	const handleRefresh = () => {
 		setPosts((prevPosts) => [
 			...prevPosts, 
 			{
@@ -32,8 +42,8 @@ const App = () => {
 	}
 
 	return (
-		<>
-			<Header>
+		<ThemeContext.Provider value={theme}>
+			<Header onToggleTheme={handleToggleTheme}>
 				<h2>
 					Posts da semana
 					<button onClick={handleRefresh}>Atualizar</button>
@@ -49,7 +59,7 @@ const App = () => {
 					onRemove={handleRemovePost}
 				/>
 			))}
-		</>
+		</ThemeContext.Provider>
 	);
 }
 

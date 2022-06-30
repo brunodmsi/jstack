@@ -1,10 +1,15 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import Button from "./Button";
 
-const Header = ({ children, title = "JStack's Blog" }) => {
+const Header = ({ children, onToggleTheme, title = "JStack's Blog" }) => {
 	return (
 		<>
 			<h1>{title}</h1>
+
+			<Button onClick={onToggleTheme}>
+				Mudar tema
+			</Button>
 		
 			{children}
 		</>
@@ -13,7 +18,8 @@ const Header = ({ children, title = "JStack's Blog" }) => {
 
 Header.propTypes = {
 	title: PropTypes.string,
-	children: PropTypes.node
+	children: PropTypes.node,
+	onToggleTheme: PropTypes.func.isRequired
 }
 
 export default Header;

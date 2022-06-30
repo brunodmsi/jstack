@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PostHeader from './PostHeader';
 
 const Post = ({ 
 	post,
@@ -8,15 +9,17 @@ const Post = ({
 	return (
 		<>
 			<article>
-				<strong>
-					{post.read && <s>{post.title}</s>}
-					{!post.read && post.title}
-					<button onClick={() => onRemove(post.id)}>
-						Remover
-					</button>
-				</strong>
+				<PostHeader
+					post={{
+						id: post.id,
+						read: post.read,
+						title: post.title
+					}} 
+					onRemove={onRemove} 
+				/>
 				<br />
 				<small>{post.subtitle}</small>
+				<br />
 				Likes: {post.likes / 2}
 			</article>
 
