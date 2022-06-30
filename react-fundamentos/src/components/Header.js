@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from 'prop-types';
 import Button from "./Button";
+import { ThemeContext } from "../context/ThemeContext";
 
-const Header = ({ children, onToggleTheme, title = "JStack's Blog" }) => {
+const Header = ({ children, title = "JStack's Blog" }) => {
+	const { onToggleTheme } = useContext(ThemeContext);
+
 	return (
 		<>
 			<h1>{title}</h1>
@@ -19,7 +22,6 @@ const Header = ({ children, onToggleTheme, title = "JStack's Blog" }) => {
 Header.propTypes = {
 	title: PropTypes.string,
 	children: PropTypes.node,
-	onToggleTheme: PropTypes.func.isRequired
 }
 
 export default Header;
