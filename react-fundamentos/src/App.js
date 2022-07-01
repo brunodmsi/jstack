@@ -6,9 +6,9 @@ import { ThemeProvider } from './context/ThemeContext';
 import './styles/index.scss';
 
 const defaultPosts = [
-	{ id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false },
-	{ id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10, read: true },
-	{ id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: false },
+	{ id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false, removed: true },
+	{ id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10, read: true, removed: false },
+	{ id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: false, removed: false },
 ]
 
 const App = () => {
@@ -30,8 +30,12 @@ const App = () => {
 
 	const handleRemovePost = (postId) => {
 		setPosts((prevPosts) => (
-			prevPosts.filter((prevPost) => prevPost.id !== postId)
-		))
+			prevPosts.map((post) => (
+				post.id === postId
+					?	{ ...post, removed: true }
+					: post
+			))
+		));
 	}
 
 	return (
