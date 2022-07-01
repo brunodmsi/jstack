@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from "./Button";
 import { ThemeContext } from "../context/ThemeContext";
 
-import styles from './Header.css';
+import styles from './Header.scss';
 
 const Header = ({ children, title = "JStack's Blog" }) => {
 	const { onToggleTheme } = useContext(ThemeContext);

@@ -30,9 +30,10 @@ module.exports = {
 						options: {
 							modules: true
 						}
-					}
+					},
+					'sass-loader'
 				],
-				test: /\.css$/,
+				test: /\.scss$/,
 				exclude: /node_modules/
 			}
 		]

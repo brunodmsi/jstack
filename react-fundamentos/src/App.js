@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Post from './components/Post';
 import { ThemeProvider } from './context/ThemeContext';
 
-import './styles/index.css';
+import './styles/index.scss';
 
 const defaultPosts = [
 	{ id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false },
