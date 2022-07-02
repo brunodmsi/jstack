@@ -1,8 +1,11 @@
 import React from 'react';
 
+import { useTheme } from '../../hooks/theme';
 import { Container } from './styles';
 
-const Header = ({ onToggleTheme, selectedTheme }) => {
+const Header = () => {
+  const { selectedTheme, onToggleTheme } = useTheme();
+
   return (
     <Container>
       <h1>JStack's Blog</h1>

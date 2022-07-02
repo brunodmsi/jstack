@@ -6,9 +6,9 @@ import Footer from '../Footer';
 
 const Layout = ({ onToggleTheme, selectedTheme }) => (
 	<>
-		<Header onToggleTheme={onToggleTheme} selectedTheme={selectedTheme} />	
+		<Header />	
 		<PostsList />
-		<Footer onToggleTheme={onToggleTheme} selectedTheme={selectedTheme} />
+		<Footer />
 	</>
 );
 
