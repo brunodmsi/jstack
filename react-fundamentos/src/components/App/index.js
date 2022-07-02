@@ -1,9 +1,10 @@
-import React, { useState, createContext } from 'react';
-import Header from './components/Header';
-import Post from './components/Post';
-import { ThemeProvider } from './context/ThemeContext';
+import React, { useState } from 'react';
 
-import './styles/index.scss';
+import Header from '../Header';
+import Post from '../Post';
+import { Title } from './styles';
+
+import { ThemeProvider } from '../../context/ThemeContext';
 
 const defaultPosts = [
 	{ id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false, removed: true },
@@ -41,10 +42,10 @@ const App = () => {
 	return (
 		<ThemeProvider>
 			<Header>
-				<h2>
+				<Title as="h2">
 					Posts da semana
 					<button onClick={handleRefresh}>Atualizar</button>
-				</h2>
+				</Title>
 			</Header>
 
 			<hr />
