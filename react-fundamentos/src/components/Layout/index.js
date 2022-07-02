@@ -4,11 +4,11 @@ import Header from '../Header';
 import PostsList from '../PostsList';
 import Footer from '../Footer';
 
-const Layout = () => (
+const Layout = ({ onToggleTheme, selectedTheme }) => (
 	<>
-		<Header />	
+		<Header onToggleTheme={onToggleTheme} selectedTheme={selectedTheme} />	
 		<PostsList />
-		<Footer />
+		<Footer onToggleTheme={onToggleTheme} selectedTheme={selectedTheme} />
 	</>
 );
 
