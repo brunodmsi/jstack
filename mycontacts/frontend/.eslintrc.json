@@ -23,6 +23,7 @@
 		"react/jsx-indent-props": [2, "tab"],
 		"import/extensions": "off",
 		"import/prefer-default-export": "off",
-		"comma-dangle": [2, "always-multiline"]
+		"comma-dangle": [2, "always-multiline"],
+		"object-curly-newline": "off"
 	}
 }
