@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
 	Card,
 	Container,
@@ -42,13 +43,13 @@ export default function Home() {
 
 					<div className="actions">
 						<button type="button">
-							<a href="/">
+							<Link to="/edit/123">
 								<img src={edit} alt="Edit" />
-							</a>
+							</Link>
 						</button>
 
 						<button type="button">
-							<a href="/">
+							<a href="/#">
 								<img src={trash} alt="Delete" />
 							</a>
 						</button>
