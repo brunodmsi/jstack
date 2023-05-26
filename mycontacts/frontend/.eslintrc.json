@@ -16,7 +16,8 @@
 	"rules": {
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"react/react-in-jsx-scope": "off",
-		"indent": [2, "tab"],
+		"indent": "off",
+		"no-confusing-arrow": "off",
 		"no-tabs": 0,
 		"react/prop-types": 0,
 		"react/jsx-indent": [2, "tab"],
