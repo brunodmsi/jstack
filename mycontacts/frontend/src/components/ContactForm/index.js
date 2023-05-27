@@ -8,8 +8,8 @@ import { Form, ButtonContainer } from './styles';
 export default function ContactForm({ buttonLabel }) {
 	return (
 		<Form>
-			<FormGroup>
-				<Input placeholder="Nome" />
+			<FormGroup error="Teste">
+				<Input placeholder="Nome" error />
 			</FormGroup>
 
 			<FormGroup>
