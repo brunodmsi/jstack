@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import useErrors from '../../hooks/useErrors';
+import isEmailValid from '../../utils/isEmailValid';
 import FormGroup from '../FormGroup';
 import Input from '../Input';
 import Select from '../Select';
@@ -12,6 +14,29 @@ export default function ContactForm({ buttonLabel }) {
 	const [email, setEmail] = useState('');
 	const [phone, setPhone] = useState('');
 	const [category, setCategory] = useState('');
+	const [errors, setErrors] = useState([]);
+
+	const { setError, removeError, getErrorMessageByFieldName } = useErrors();
+
+	function handleNameChange(event) {
+		setName(event.target.value);
+
+		if (!event.target.value) {
+			setError({ field: 'name', message: 'Nome é obrigatório' });
+		} else {
+			removeError('name');
+		}
+	}
+
+	function handleEmailChange(event) {
+		setEmail(event.target.value);
+
+		if (event.target.value && !isEmailValid(event.target.value)) {
+			setError({ field: 'email', message: 'Email inválido' });
+		} else {
+			removeError('email');
+		}
+	}
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -20,19 +45,21 @@ export default function ContactForm({ buttonLabel }) {
 
 	return (
 		<Form onSubmit={handleSubmit}>
-			<FormGroup>
+			<FormGroup error={getErrorMessageByFieldName('name')}>
 				<Input
+					error={getErrorMessageByFieldName('name')}
 					value={name}
 					placeholder="Nome"
-					onChange={(event) => setName(event.target.value)}
+					onChange={handleNameChange}
 				/>
 			</FormGroup>
 
-			<FormGroup>
+			<FormGroup error={getErrorMessageByFieldName('email')}>
 				<Input
+					error={getErrorMessageByFieldName('email')}
 					value={email}
 					placeholder="E-mail"
-					onChange={(event) => setEmail(event.target.value)}
+					onChange={handleEmailChange}
 				/>
 			</FormGroup>
 
