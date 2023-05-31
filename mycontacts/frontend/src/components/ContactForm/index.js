@@ -41,8 +41,6 @@ export default function ContactForm({ buttonLabel }) {
 		}
 	}
 
-	console.log(errors);
-
 	function handlePhoneChange(event) {
 		setPhone(formatPhone(event.target.value));
 	}
@@ -58,7 +56,7 @@ export default function ContactForm({ buttonLabel }) {
 				<Input
 					error={getErrorMessageByFieldName('name')}
 					value={name}
-					placeholder="Nome"
+					placeholder="Nome *"
 					onChange={handleNameChange}
 				/>
 			</FormGroup>
