@@ -7,9 +7,8 @@ const app = express();
 
 app.use(express.json());
 
-app.use((request, response, next) => {
-	request.appId = 'MeuAppId';
-
+app.use((_, response, next) => {
+	response.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 	next();
 });
 
@@ -18,8 +17,7 @@ app.use(routes);
 /**
  * Error Handler
  */
-app.use((error, request, response, next) => {
-	console.log('#### Error Handler');
+app.use((error, _, response, _) => {
 	console.log(error);
 	response.sendStatus(500);
 });
